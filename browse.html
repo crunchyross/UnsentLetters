@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Stories - UnsentLetters</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎵 UnsentLetters</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="submit.html" class="nav-link">Submit</a></li>
+                <li><a href="browse.html" class="nav-link active">Browse</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Browse Section -->
+    <section class="browse-section">
+        <div class="browse-container">
+            <h1>Browse Stories</h1>
+            <p class="subtitle">Search for messages written for you or explore beautiful stories from others</p>
+
+            <!-- Search Bar -->
+            <div class="search-bar-container">
+                <input type="text" id="searchInput" class="search-bar" placeholder="Search by recipient name...">
+                <button id="searchBtn" class="search-btn">🔍 Search</button>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="recent">Recent</button>
+                <button class="filter-btn" data-filter="popular">Popular</button>
+            </div>
+
+            <!-- Messages Grid -->
+            <div class="messages-grid" id="messagesGrid">
+                <!-- Messages will be loaded here -->
+            </div>
+
+            <!-- No Results -->
+            <div id="noResults" class="no-results" style="display:none;">
+                <p>No stories found. Try a different search!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Detail Modal -->
+    <div id="messageModal" class="modal" style="display:none;">
+        <div class="modal-content message-detail">
+            <span class="close" onclick="closeModal()">&times;</span>
+            
+            <div class="message-modal-header">
+                <div id="detailArtwork" class="detail-artwork"></div>
+                <div class="detail-song-info">
+                    <h2 id="detailRecipient">To:</h2>
+                    <p id="detailSongTitle"></p>
+                    <p id="detailArtist"></p>
+                    <p id="detailDate"></p>
+                </div>
+            </div>
+
+            <div class="message-modal-body">
+                <p id="detailMessage"></p>
+            </div>
+
+            <div class="message-modal-footer">
+                <a id="spotifyLink" href="#" target="_blank" class="btn btn-secondary">Listen on Spotify</a>
+                <button onclick="shareMessage()" class="btn btn-primary">Share This Story</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

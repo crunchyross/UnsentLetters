@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Story - UnsentLetters</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎵 UnsentLetters</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="submit.html" class="nav-link active">Submit</a></li>
+                <li><a href="browse.html" class="nav-link">Browse</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Submit Form Section -->
+    <section class="submit-section">
+        <div class="submit-container">
+            <h1>Tell Your Story</h1>
+            <p class="subtitle">Choose a song and share your heartfelt message</p>
+
+            <form id="submitForm" class="submit-form">
+                <!-- Recipient Info -->
+                <div class="form-group">
+                    <label for="recipientName">To:</label>
+                    <input type="text" id="recipientName" placeholder="Enter recipient's name" required>
+                    <small>Leave empty to keep it anonymous or for yourself</small>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" placeholder="Write your heartfelt message..." rows="6" required></textarea>
+                    <small id="charCount">0 / 500 characters</small>
+                </div>
+
+                <!-- Song Selection -->
+                <div class="form-group">
+                    <label for="songTitle">Song Title:</label>
+                    <input type="text" id="songTitle" placeholder="Enter song title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="artistName">Artist Name:</label>
+                    <input type="text" id="artistName" placeholder="Enter artist name" required>
+                </div>
+
+                <!-- Music Platform -->
+                <div class="form-group">
+                    <label for="musicPlatform">Music Platform:</label>
+                    <select id="musicPlatform" required>
+                        <option value="">Select a platform</option>
+                        <option value="spotify">Spotify</option>
+                        <option value="apple">Apple Music</option>
+                        <option value="youtube">YouTube Music</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Music URL -->
+                <div class="form-group">
+                    <label for="musicUrl">Link to Song:</label>
+                    <input type="url" id="musicUrl" placeholder="Paste the link to the song" required>
+                </div>
+
+                <!-- Privacy -->
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="isPublic" checked>
+                    <label for="isPublic">Make this story public (so others can see it)</label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="searchable" checked>
+                    <label for="searchable">Allow people to find this by searching the recipient's name</label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary submit-btn">Share Your Story</button>
+            </form>
+
+            <!-- Song Preview -->
+            <div id="songPreview" class="song-preview" style="display:none;">
+                <h3>Preview</h3>
+                <div class="preview-card">
+                    <div id="previewArtwork" class="preview-artwork"></div>
+                    <div class="preview-info">
+                        <h4 id="previewTitle"></h4>
+                        <p id="previewArtist"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h2>Story Shared Successfully!</h2>
+            <p>Your heartfelt message has been shared with the world.</p>
+            <p>Share the link below with your friends:</p>
+            <div class="share-link">
+                <input type="text" id="shareLink" readonly>
+                <button onclick="copyToClipboard()">Copy</button>
+            </div>
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
